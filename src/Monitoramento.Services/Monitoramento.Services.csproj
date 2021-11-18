@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Monitoramento.Hubs\Monitoramento.Hubs.csproj" />
+        <ProjectReference Include="..\Monitoramento.Infrastructure\Monitoramento.Infrastructure.csproj" />
+        <ProjectReference Include="..\Monitoramento.Services.Repository\Monitoramento.Services.Repository.csproj" />
+        <ProjectReference Include="..\Monitoramento.WebUtility\Monitoramento.WebUtility.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+</Project>

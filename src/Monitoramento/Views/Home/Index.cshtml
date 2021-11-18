@@ -1,0 +1,52 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+<div id="painel-container" class="categoria">
+
+    <div class="row" data-bind="foreach: categories().sort(sortCategories)">
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3" style="padding-right: 5px; padding-left: 5px">
+            <div class="card card-custom text-center mx-auto"
+                 data-bind="click: clickToExpand, css: cssAttr">
+                <div class="card-header">
+                    <h6 data-bind="text: titulo">Monitoramento</h6>
+                </div>
+                <div class="card-footer categoria-footer text-right" data-bind="css: footerCssAttr">
+                    <p data-bind="text: watchersLength"></p><span>Observadores</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" data-bind="foreach: categories().sort(sortCategories)">
+        <!-- ko if: expand() -->
+        <div class="col-12">
+
+            <div class="grid-card-custom-subitem" data-bind="foreach: watchers">
+                <div class="card-custom-subitem"
+                     data-bind="css: {'bg-success': status() == app.painel.enum.code.OK,
+                            'bg-danger': status() == app.painel.enum.code.Fail,
+                            'bg-warning': status() == app.painel.enum.code.Warning }">
+                    <div class="card-body">
+                        <h6 data-bind="text: title"></h6>
+                        <!-- ko if: message() != ""-->
+                        <p data-bind="html: message"></p>
+                        <!-- /ko -->
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text text-center" data-bind="text: date() + ' ' + startTime() + ' - ' + endTime()"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <div class="row" data-bind="foreach: charts">
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6" style="padding-right: 5px; padding-left: 5px">
+            <div class="card text-center mx-auto large-card">
+                <div class="card-body">
+                    <div data-bind="attr: {id: 'idChart' + type()}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

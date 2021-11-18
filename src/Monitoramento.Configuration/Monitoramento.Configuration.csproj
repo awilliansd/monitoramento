@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Hangfire.Core" Version="1.7.27" />
+        <PackageReference Include="Hangfire.PostgreSql" Version="1.8.6" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+        <PackageReference Include="Hangfire" Version="1.7.27" />
+        <PackageReference Include="Hangfire.AspNetCore" Version="1.7.27" />
+        <PackageReference Include="Microsoft.Extensions.Primitives" Version="5.0.1" />
+        <PackageReference Include="Scrutor" Version="3.3.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
+        <PackageReference Include="TimeZoneConverter" Version="3.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Monitoramento.Infrastructure\Monitoramento.Infrastructure.csproj" />
+        <ProjectReference Include="..\Monitoramento.Integration\Monitoramento.Integration.csproj" />
+        <ProjectReference Include="..\Monitoramento.Jobs\Monitoramento.Jobs.csproj" />
+        <ProjectReference Include="..\Monitoramento.Services.Repository\Monitoramento.Services.Repository.csproj" />
+        <ProjectReference Include="..\Monitoramento.Services\Monitoramento.Services.csproj" />
+    </ItemGroup>
+
+</Project>

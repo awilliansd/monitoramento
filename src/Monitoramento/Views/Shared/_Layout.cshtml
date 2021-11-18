@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Monitoramento</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="~/lib/Highcharts/css/highcharts.css"/>
+    </environment>
+    <environment include="Staging,Production">
+        <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="~/lib/Highcharts/css/highcharts.css"/>
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.ico"/>
+</head>
+<body>
+<nav class="page-header navbar navbar-fixed-top">
+    <i class="icon-monitor"></i>
+    <a asp-controller="Home" asp-action="Index" asp-route-area=" " class="navbar-brand">Monitoramento</a>
+    <div class="ml-auto">
+        <p class="last-update">Ultima atualização: -</p>
+    </div>
+</nav>
+<div class="custom-container container body-content">
+    @RenderBody()
+</div>
+<footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4 text-center">
+                <a href="http://www.ambev.com.br/" target="_blank">
+                    <img src="~/images/icon-ambev.png"/>
+                </a>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div class="row copy-right">
+            <div class="col-md-12 text-center">&copy; @DateTime.Now.Year - Painel de Monitoramento de Serviços</div>
+        </div>
+    </div>
+</footer>
+<environment include="Development">
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/knockout/knockout-debug.js"></script>
+    <script src="~/lib/Chart.js/Chart.js"></script>
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/lib/Highcharts/js/highcharts.js"></script>
+</environment>
+<environment names="Staging,Production">
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/knockout/knockout-min.js"></script>
+    <script src="~/lib/Chart.js/Chart.min.js"></script>
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/lib/Highcharts/js/highcharts.es5.min.js"></script>
+</environment>
+
+<script src="~/app/enum/app.painel.enum.category.js"></script>
+<script src="~/app/enum/app.painel.enum.code.js"></script>
+<script src="~/app/model/app.painel.model.Category.js"></script>
+<script src="~/app/model/app.painel.model.Grafico.js"></script>
+<script src="~/app/model/app.painel.model.Servico.js"></script>
+<script src="~/app/app.painel.apiChart.viewModel.js"></script>
+<script src="~/app/app.painel.viewModel.js"></script>
+
+@RenderSection("Scripts", required: false)
+</body>
+</html>
